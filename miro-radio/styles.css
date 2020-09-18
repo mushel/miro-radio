@@ -1,0 +1,122 @@
+html {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(31,68,103,1) 35%, rgba(51,0,179,1) 100%);
+    height: 100%;;
+}
+body {
+    background: url(./img/bg-lines.png) repeat;
+    height: 100%;
+}
+.logo {
+    background: url(./img/logo-white.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 230px;
+    width: 264px;
+}
+h1 {
+    color:white;
+    text-align:center;
+    letter-spacing:5px;
+    font-weight:300; 
+    font-size:50px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+}
+
+p {
+    color:white;
+    font-weight:300; 
+    font-size:18px;  
+}
+p.lead {
+    letter-spacing:5px;
+}
+button.main {
+    background:#2ecc71;
+    width:200px;
+    height:60px;
+    border-radius:30px; 
+    font-weight:bold;
+    border:0;
+    color:#fff;
+    font-size:17px;
+    cursor: grab;
+}
+button.main:active, button:active {
+    cursor: grabbing;
+}
+button {
+    cursor: grab;
+}
+
+button.btn {
+    border-radius: 1.25rem;
+}
+.flip {
+    transform: scale(-1, 1);
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: -3px;
+}
+.flex-center {
+    justify-content: center;
+    display: flex;
+}
+/* youtube / video shit */
+
+.responsive-embed {
+    position: relative; 
+    padding-bottom: 56.25%; 
+    height: 0; 
+    overflow: hidden; 
+    max-width: 100%; 
+}
+
+.responsive-embed iframe, .responsive-embed object, .responsive-embed embed { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+  
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+  
+.video_button, .play_button {
+    font-size: 5rem;
+    cursor: pointer;
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+}
