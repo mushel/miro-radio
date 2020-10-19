@@ -1,89 +1,117 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Garlito.js - Shoutcast Player</title>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+    <head>
+        <title>Miro-Radio</title>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
 
-    <!-- Garlito CSS -->
-    <link rel="stylesheet" href="dist/css/garlito.min.css">
-    <!--Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+        <!-- Garlito CSS -->
+        <link rel="stylesheet" href="dist/css/garlito.min.css">
+        <!--Bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
 
-
-</head>
-<body>
-
-<div class="container-fluid">
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="responsive-embed">
-            <div id="player"></div>
-
-            <!-- <iframe src="https://www.youtube.com/embed/Ul5rTdYo628" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen volume="0"></iframe> -->
-            
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <span class="video_button" onclick="openNav()">
-                <svg class="bi bi-camera-video-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.667 3h6.666C10.253 3 11 3.746 11 4.667v6.666c0 .92-.746 1.667-1.667 1.667H2.667C1.747 13 1 12.254 1 11.333V4.667C1 3.747 1.746 3 2.667 3z"/>
-                    <path d="M7.404 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.693-1.01-1.233-.696L7.404 7.304a.802.802 0 0 0 0 1.393z"/>
-                </svg> Show Video
-            </span>
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-sm-2 col-12">
-            <!-- <nav class="mt-3">
-               <a href="archives.html">Archives</a> 
-            </nav>
-            <hr>
-            <p class="small">
-
-                
-                <em>Stream Name:</em> <strong id="currentlisteners">()</strong>
-                <br>
-                <em>Listeners:</em> <strong>####</strong>
-                <br>
-                <em>Average Play Time:</em> <strong>##:##</strong>
-                <br>
-                <em>Playing Now:</em> <strong>s@#$%^&*()</strong>
-            
-            </p>
-            <hr> -->
-            
-
-        </div>
-        <div class="col-sm-8 col-12">
-            <div class="row mt-5">
-                <div class="col flex-center">
-                    <div class="logo"></div>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-center">
-                    <button id="ListenButton" class="main"> Listen Now</button>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col">
-                    <h4>Miro Radio = A New Orleans Underground Radio Experiment</h4>
-                </div>
-            </div>
-            
-            
-        </div>
+        <div class="container-fluid">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="responsive-embed">
+                    <div id="player"></div>
         
-    </div>
-    
-    
-</div>
+                    <!-- <iframe src="https://www.youtube.com/embed/Ul5rTdYo628" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen volume="0"></iframe> -->
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-12">
+                    <span class="play_button" title="Play"> 
+                        <svg id="garlito-play" alt="Play" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                        </svg>
+                        <svg id="garlito-pause" alt="Pause" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+                        </svg>
+                    </span>
+                    <p class="white-text">
+                       
+                        <div class="name">'+o.radioName+'</div>
+                    </p>
+                </div>
+                <div class="col-sm-8 col-12">
+                    
+                    <div class="center">
+                       <div class="logo"></div> 
+                    </div>    
+                    
+                </div>
+                <div class="col-sm-2 col-12">
+                    <span title="Show Video" class="video_button" onclick="openNav()">
+                        <svg class="bi bi-camera-video-fill" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.667 3h6.666C10.253 3 11 3.746 11 4.667v6.666c0 .92-.746 1.667-1.667 1.667H2.667C1.747 13 1 12.254 1 11.333V4.667C1 3.747 1.746 3 2.667 3z"/>
+                            <path d="M7.404 8.697l6.363 3.692c.54.313 1.233-.066 1.233-.697V4.308c0-.63-.693-1.01-1.233-.696L7.404 7.304a.802.802 0 0 0 0 1.393z"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
 
-<div id="yourplayer"></div>
+            <div class="row">
+                <div class="col-12">
+                    hi there
+                    this is the code for the player:<br>
+<div id="listenButton">popup slider</div>
+                    <div class="garlito-player"> 
+                        <div id="garlito-close">
+                            <img src="//michelle-media.s3.amazonaws.com/miro-img/close-gray.svg">
+                        </div>
+                        <div class="container-fluid"> 
+                            <div class="row"> 
+                                <div class="brand col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 height"> 
+                                    <div class="branding"> 
+                                        <div class="logo-holder"> 
+                                            <div class="garlito-logo"> 
+                                                <img src="'+o.logoUrl+'" alt="Miro Radio"> </div>
+                                            </div>
+                                            <div class="name-holder"> 
+                                                
+                                            </div>
+                                            <div class="social-media"> 
+                                                <a id="garlitoFacebookUrl" href="'+o.facebookUrl+'" target="_blank">
+                                                    <img src="//michelle-media.s3.amazonaws.com/miro-img/facebook.svg">
+                                                </a> 
+                                                <a id="garlitoInstagramUrl" href="'+o.instagramUrl+'" target="_blank">
+                                                    <img src="//michelle-media.s3.amazonaws.com/miro-img/instagram.svg">
+                                                </a> 
+                                            </div>
+                                            <div class="garlito-cover-mobile"> 
+                                                <img width="60" height="60" src="//michelle-media.s3.amazonaws.com/miro-img/no-cover.jpg" id="garlito-cover-mobile"> 
+                                            </div>
+                                            <div class="play-settings"> 
+                                                <div class="play-pause item"> 
+                                                    <!-- <img id="garlito-play" alt="Play" src="img/play-gray.svg"> 
+                                                    <img id="garlito-pause" alt="Pause" src="img/pause-gray.svg">  -->
+                                                </div>
+                                                <div class="volume item"> 
+                                                    <input type="range" min="0" max="100" value="" class="slider" id="garlito-volume-slider"> </div>
+                                                </div>
+                                                <div class="garlito-cover"> 
+                                                    <img id="garlito-cover" width="60" height="60" src="//michelle-media.s3.amazonaws.com/miro-img/no-cover.jpg" id=""> 
+                                                </div>
+                                                <div class="radio-title"> 
+                                                    <span class="now-playing">'+o.nowPlayingText+'<span> 
+                                                    <span id="garlito-currentSong"></span> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
+                    <div id="yourplayer"></div>
+
+
+                </div>
+            </div>
+        </div>
 <!-- Jquery 3.3.1 -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
@@ -94,19 +122,24 @@
 <script type="text/javascript" src="dist/js/garlito.min.js"></script>
 
 <script>
+
+    // for audio shoutcast player links to stream
     $( "#yourplayer" ).garlitoPlayer({
-        ip: "54.189.35.76",
+        ip: "44.241.120.12",
+        protocol: "http://",
         port: "80",
         volume: 1,
         facebookUrl: "https://facebook.com/djnicerack",
         instagramUrl: "https://instagram.com/djnicerack",
-        radioName : "Nice Rack Radio",
+        radioName : "Miro Radio",
         popup:true,
         // lastFmApiKey:"85d4e735d8374226a892f97260219982",
         listenButtonId:"#ListenButton"
     });
 
-    // for video
+
+
+    // for video from youtube
       // This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
@@ -116,18 +149,22 @@
 
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
+      // michelle added the playlist part!!!
       var player;
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           height: '390',
           width: '640',
-          videoId: 'mFTeDcJxuXs',
+        //   videoId: 'mFTeDcJxuXs',
+          videoId: 'SoYwM-soQWY',
           playerVars: {
             controls: 0,
             disablekb: 1,
             modestbranding: 1,
             showinfo: 0,
-            loop: 1
+            loop: 1,
+            listType: 'playlist',
+            list: 'PLWAXBDf7xbeR_cbLB2lP-PDFlvUqhnAPz'
         },
           events: {
             'onReady': onPlayerReady,

@@ -4,11 +4,11 @@ html {
     height: 100%;;
 }
 body {
-    background: url(./img/bg-lines.png) repeat;
+    background: url(https://michelle-media.s3.amazonaws.com/miro-img/bg-lines.png) repeat;
     height: 100%;
 }
 .logo {
-    background: url(./img/logo-white.png) no-repeat;
+    background: url(https://michelle-media.s3.amazonaws.com/miro-img/logo-white.png) no-repeat;
     background-position: center;
     background-size: cover;
     height: 230px;
@@ -119,4 +119,8 @@ button.btn {
     cursor: pointer;
     font-family: 'Fredoka One', cursive;
     color: #fff;
+}
+.center {
+    justify-content: center;
+    display: flex;
 }
